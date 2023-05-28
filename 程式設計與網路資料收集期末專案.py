@@ -88,7 +88,7 @@ tickers_cov_metics = tickers_monthly_return.apply(lambda x: np.log(1+x)).cov()
 
 #個別投資標的bp值
 #計算大盤月報酬、計算大盤std、大盤E(r)
-TWII = pd.read_csv("C:/Andrew/^TWII.csv")
+TWII = pd.read_csv("TWII.csv")
 TWII_return = TWII["Adj Close"].pct_change()
 
 TWII_std = TWII_return.std()
