@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import sklearn
 import yfinance as yf
 import matplotlib.pyplot as plt
 from scipy.optimize import minimize, rosen, rosen_der
