@@ -17,19 +17,7 @@ st.set_page_config(
 st.markdown("<h1 style='text-align: center; color: black;'>投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
 
-#今天日期、時間、星期幾
-import datetime
-import time
-from datetime import date
-import calendar
-current_date = date.today()
-current_weekday = calendar.day_name[current_date.weekday()]
-localtime = time.localtime()
-current_time = time.strftime("%H:%M", localtime)
-time_result = current_time + ', ' + current_weekday
-
 # 輸入體量
-st.header(time_result + ':sunglasses:')
 st.subheader('請輸入投資總額')
 total_value = st.text_input(' ', key = 1)
 if not total_value:
@@ -40,7 +28,6 @@ ticker_crawler_list = [] # 紀錄用戶輸入的標的代碼，必須要跟yfina
 temp = ""
 k = 2
 while temp != "end":
-    st.header(time_result + ':sunglasses:')
     st.subheader('請只輸入台股的投資標的,並以xxxx.TW格式輸入')
     st.caption('結束時輸入end') 
     temp = st.text_input("", key = k)
