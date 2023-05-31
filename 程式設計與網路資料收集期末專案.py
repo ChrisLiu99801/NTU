@@ -8,12 +8,6 @@ from datetime import datetime
 import math
 figsize = (14, 8) 
 
-hide_footer_style = """
-<style>
-.reportview-container .main footer {visibility: hidden;}    
-"""
-st.markdown(hide_footer_style, unsafe_allow_html=True)
-
 st.set_page_config(
     page_title="Portfolio Analysis",
     page_icon="random",
