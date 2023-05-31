@@ -9,13 +9,13 @@ import math
 figsize = (14, 8) 
 
 st.markdown(
-   f”””
+   f'''
    <style>
    p {
    background-image: url(‘’);
    }
    </style>
-   ”””,
+   ''',
    unsafe_allow_html=True)
 
 
