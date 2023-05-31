@@ -8,7 +8,7 @@ from datetime import datetime
 import math
 figsize = (14, 8) 
 
-page_bg_img = st.markdown(trend.png, unsafe_allow_html=True)
+st.markdown("trend.png", unsafe_allow_html=True)
 
 st.set_page_config(
     page_title="Portfolio Analysis",
