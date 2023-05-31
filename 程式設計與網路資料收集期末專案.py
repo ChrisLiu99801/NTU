@@ -8,20 +8,6 @@ from datetime import datetime
 import math
 figsize = (14, 8) 
 
-st.markdown(
-   f'''
-   <style>
-   p {
-   background-image: url(‘trend.png’);
-   }
-   </style>
-   ''',
-   unsafe_allow_html=True)
-
-
-
-
-
 
 st.set_page_config(
     page_title="Portfolio Analysis",
