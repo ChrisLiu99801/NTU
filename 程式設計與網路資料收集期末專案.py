@@ -8,6 +8,22 @@ from datetime import datetime
 import math
 figsize = (14, 8) 
 
+def sidebar_bg(side_bg):
+
+   side_bg_ext = 'png'
+
+   st.markdown(
+      f"""
+      <style>
+      [data-testid="stSidebar"] > div:first-child {{
+          background: url(https://github.com/ChrisLiu99801/NTU/blob/c48b09a089aabef17dbe56dc1f5476c48c2896ba/trend.png).read()).decode()});
+      }}
+      </style>
+      """,
+      unsafe_allow_html=True,
+      )
+
+
 st.set_page_config(
     page_title="Portfolio Analysis",
     page_icon="random",
