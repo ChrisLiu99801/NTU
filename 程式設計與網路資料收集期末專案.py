@@ -27,14 +27,14 @@ if not total_value:
 ticker_crawler_list = [] # 紀錄用戶輸入的標的代碼，必須要跟yfinance同格式 xxxx.TW
 temp = ""
 k = 2
-while temp != "end":
+while temp != "end" or temp != "End":
     st.subheader('請只輸入台股的投資標的,並以xxxx.TW格式輸入')
     st.caption('結束時輸入end') 
     temp = st.text_input("", key = k)
     k = k + 1
     if not temp:
         st.stop()
-    if temp != "end":
+    if temp != "end" or temp != "End":
         ticker_crawler_list.append(temp)
 
 with st.spinner('Wait for it...'):
