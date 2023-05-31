@@ -7,28 +7,6 @@ from scipy.optimize import minimize, rosen, rosen_der
 from datetime import datetime
 import math
 figsize = (14, 8) 
-
-def set_bg_hack_url():
-    '''
-    A function to unpack an image from url and set as bg.
-    Returns
-    -------
-    The background.
-    '''
-        
-    st.markdown(
-         f"""
-         <style>
-         .stApp {{
-             background: url("https://github.com/ChrisLiu99801/NTU/blob/c48b09a089aabef17dbe56dc1f5476c48c2896ba/trend.png");
-             background-size: cover
-         }}
-         </style>
-         """,
-         unsafe_allow_html=True
-     )
-   
-set_bg_hack_url()
    
 st.set_page_config(
     page_title="Portfolio Analysis",
