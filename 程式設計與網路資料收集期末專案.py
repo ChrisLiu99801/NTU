@@ -14,6 +14,19 @@ st.set_page_config(
     layout="centered",
 )
 
+st.set_page_config(
+    page_title="Ex-stream-ly Cool App",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
+)
+
+
 
 st.markdown("<h1 style='text-align: center; color: black;'>投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
