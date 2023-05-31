@@ -28,7 +28,7 @@ def set_bg_hack_url():
          unsafe_allow_html=True
      )
    
- set_bg_hack_url()
+set_bg_hack_url()
    
 st.set_page_config(
     page_title="Portfolio Analysis",
