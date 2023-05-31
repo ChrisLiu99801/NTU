@@ -14,10 +14,6 @@ st.set_page_config(
     layout="centered"
 )
 
-
-
-
-
 st.markdown("<h1 style='text-align: center; color: black;'>投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
 
@@ -169,24 +165,14 @@ definition_treynor = st.sidebar.markdown("夏普指標，是指承擔每一單�
 st.balloons()
 
 #最低風險
-st.header('達到預期報酬的最低風險組合：')
-for i in range(len(ticker_crawler_list)) :
-    st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_min_var_port[i + 3])*100, '.3f')) + "%")
-col1, col2, col3 = st.columns(3)
-col1.metric("投資組合報酬率", format(tickers_min_var_port[0], '.3f'))
-col2.metric("投資組合波動率", format(tickers_min_var_port[1], '.3f'))
-col3.metric("投資組合BP", format(tickers_min_var_port[2], '.3f'))
+subheader_text = []
+for i in range(len(ticker_crawler_list)):
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_sharpe_port[i + 3])*float(total_value), '.2f')) + " 元)")
 
-col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[5], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_min_var_port[6], '.3f'))
-col6.metric("投資組合詹森指標", format(tickers_min_var_port[7], '.3f'))
-st.divider()
-
-#最大化夏普率之投資組合
 st.header('最大化夏普率組合：')
-for i in range(len(ticker_crawler_list)) :
-     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%")
+for text in subheader_text:
+    st.subheader(text)
+
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", format(tickers_max_sharpe_port [0], '.3f'))
 col2.metric("投資組合波動率", format(tickers_max_sharpe_port [1], '.3f'))
@@ -199,9 +185,18 @@ col6.metric("投資組合詹森指標", format(tickers_max_sharpe_port [7], '.3f
 st.divider()
 
 #最大崔納指標組合
+# for i in range(len(ticker_crawler_list)) :
+#     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_treynor_ratio[i + 3])*100, '.3f')) + "%")
+
+subheader_text = []
+for i in range(len(ticker_crawler_list)):
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_treynor_ratio[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_treynor_ratio[i + 3])*float(total_value), '.2f')) + " 元)")
+
 st.header('最大崔納指標組合：')
-for i in range(len(ticker_crawler_list)) :
-    st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_treynor_ratio[i + 3])*100, '.3f')) + "%")
+for text in subheader_text:
+    st.subheader(text)
+
+
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", format(tickers_max_treynor_ratio [0], '.3f'))
 col2.metric("投資組合波動率", format(tickers_max_treynor_ratio [1], '.3f'))
@@ -214,9 +209,17 @@ col6.metric("投資組合詹森指標", format(tickers_max_treynor_ratio [7], '.
 st.divider()
 
 #最大詹森
+# for i in range(len(ticker_crawler_list)) :
+#     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_jensen_ratio[i + 3])*100, '.3f')) + "%")
+
+subheader_text = []
+for i in range(len(ticker_crawler_list)):
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_jensen_ratio[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_jensen_ratio[i + 3])*float(total_value), '.2f')) + " 元)")
+
 st.header('最大詹森指標組合：')
-for i in range(len(ticker_crawler_list)) :
-    st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_jensen_ratio[i + 3])*100, '.3f')) + "%")
+for text in subheader_text:
+    st.subheader(text)
+
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", format(tickers_max_jensen_ratio[0], '.3f'))
 col2.metric("投資組合波動率", format(tickers_max_jensen_ratio[1], '.3f'))
