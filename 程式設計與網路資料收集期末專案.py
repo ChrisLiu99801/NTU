@@ -167,7 +167,7 @@ st.balloons()
 #最低風險
 subheader_text = []
 for i in range(len(ticker_crawler_list)):
-    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(format(float(tickers_max_sharpe_port[i + 3])*float(total_value), '.2f'), ',d')) + " 元)")
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_sharpe_port[i + 3])*float(total_value), '.2f')) + " 元)")
 
 st.header('最大化夏普率組合：')
 for text in subheader_text:
