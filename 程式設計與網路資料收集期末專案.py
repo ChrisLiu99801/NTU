@@ -8,6 +8,16 @@ from datetime import datetime
 import math
 figsize = (14, 8) 
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.livemint.com%2Fimg%2F2023%2F03%2F03%2F600x338%2FDay_trading_guide_for_today_1677802386051_1677802386295_1677802386295.jpg&tbnid=Uxqb4ybUIcvO5M&vet=12ahUKEwjuuvPjxJ7_AhW2ynMBHT65BfIQMygEegUIARC-AQ..i&imgrefurl=https%3A%2F%2Fwww.livemint.com%2Fmarket%2Fstock-market-news%2Fday-trading-guide-for-today-6-stocks-to-buy-or-sell-on-friday-3rd-march-11677802198672.html&docid=ouySV6-qGpiEiM&w=600&h=337&q=stock&ved=2ahUKEwjuuvPjxJ7_AhW2ynMBHT65BfIQMygEegUIARC-AQ
+");
+background-size: cover;
+}
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
 
 st.set_page_config(
     page_title="Portfolio Analysis",
