@@ -14,14 +14,14 @@ st.set_page_config(
     layout="centered",
 )
 
-page_bg_img = '''
+page_bg_img = 
 <style>
 body {
 background-image: url("https://github.com/ChrisLiu99801/NTU/blob/d060598e0c414f27d74cc8c3fd4ae475359c3689/trend.png");
 background-size: cover;
 }
 </style>
-'''
+
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center; color: black;'>投資組合分析</h1>", unsafe_allow_html=True)
