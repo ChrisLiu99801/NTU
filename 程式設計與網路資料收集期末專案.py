@@ -14,7 +14,7 @@ st.set_page_config(
     layout="centered",
 )
 
-page_bg_img = "<style>body {background-image: url("https://github.com/ChrisLiu99801/NTU/blob/d060598e0c414f27d74cc8c3fd4ae475359c3689/trend.png");background-size: cover;}</style>
+page_bg_img = "<style> body {background-image: url("https://github.com/ChrisLiu99801/NTU/blob/d060598e0c414f27d74cc8c3fd4ae475359c3689/trend.png");background-size: cover;} </style>
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
