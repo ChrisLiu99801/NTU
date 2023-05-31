@@ -12,7 +12,7 @@ st.markdown(
    f'''
    <style>
    p {
-   background-image: url(‘’);
+   background-image: url(‘trend.png’);
    }
    </style>
    ''',
