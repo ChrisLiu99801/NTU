@@ -11,8 +11,7 @@ figsize = (14, 8)
 st.set_page_config(
     page_title="Portfolio Analysis",
     page_icon="random",
-    layout="centered",
-    menu_items={'About': "# This is a header. This is an *extremely* cool app!"}
+    layout="centered"
 )
 
 
