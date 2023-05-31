@@ -9,7 +9,7 @@ import math
 figsize = (14, 8) 
 
 st.set_page_config(
-    page_title="Manage Your Portfolio",
+    page_title="Portfolio Analysis",
     page_icon="random",
     layout="centered",
 )
@@ -152,7 +152,7 @@ with st.spinner('Wait for it...'):
         round(tickers_max_jensen_ratio[3], 5)
         round(tickers_max_jensen_ratio[4], 5)
     except :
-        e = RuntimeError('輸入標的必須為台股且須為XXXX.TW格式')
+        e = RuntimeError('您需要輸入兩個以上的台股標的且須為XXXX.TW格式')
         st.exception(e)
         st.stop()
 
@@ -162,6 +162,7 @@ definition = st.sidebar.subheader("Jensen Index (詹森指標)")
 definition_treynor = st.sidebar.markdown("詹森指標是指投資組合的績效，是否優於相同風險水準下其他組合的績效。詹森指標可為正或負，正值愈大表示績效愈好。")
 definition = st.sidebar.subheader("Sharp Ratio (夏普比率)")
 definition_treynor = st.sidebar.markdown("夏普指標，是指承擔每一單位的總風險，可獲得多少單位的風險溢酬。")
+st.balloons()
 
 #最低風險
 st.header('達到預期報酬的最低風險組合：')
