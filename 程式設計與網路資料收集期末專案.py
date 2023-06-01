@@ -164,7 +164,32 @@ definition = st.sidebar.subheader("Sharp Ratio (夏普比率)")
 definition_treynor = st.sidebar.markdown("夏普指標，是指承擔每一單位的總風險，可獲得多少單位的風險溢酬。")
 st.balloons()
 
-#最低風險
+subheader_text = []
+for i in range(len(ticker_crawler_list)):
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_min_var_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_min_var_port[i + 3])*float(total_value), '.2f')) + " 元)")
+
+st.header('達到預期報酬的最低風險組合：')
+for text in subheader_text:
+    st.subheader(text)
+
+# st.subheader('比例：')
+# for i in range(len(ticker_crawler_list)) :
+#     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_min_var_port[i + 3])*100, '.3f')) + "%" + "")
+    
+col1, col2, col3 = st.columns(3)
+col1.metric("投資組合報酬率", format(tickers_min_var_port[0], '.3f'))
+col2.metric("投資組合波動率", format(tickers_min_var_port[1], '.3f'))
+col3.metric("投資組合BP", format(tickers_min_var_port[2], '.3f'))
+
+col4, col5, col6 = st.columns(3)
+col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[5], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_min_var_port[6], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_min_var_port[7], '.3f'))
+st.divider()
+
+#最大化夏普率之投資組合
+# for i in range(len(ticker_crawler_list)) :
+#      st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%")
 subheader_text = []
 for i in range(len(ticker_crawler_list)):
     subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_sharpe_port[i + 3])*float(total_value), '.2f')) + " 元)")
