@@ -16,7 +16,7 @@ st.set_page_config(
 )
 
 image = Image.open('logo.jpg')
-st.image(image, caption='Sunrise by the mountains')
+st.image(image, caption='')
 
 st.markdown("<h1 style='text-align: center; color: black;'>Analysmart 投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
