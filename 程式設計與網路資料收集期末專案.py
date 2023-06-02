@@ -140,7 +140,7 @@ with st.spinner('Wait for it...'):
         for tickers_counter, tickers_symbol in enumerate(tickers_price.columns.tolist()):
             tickers_data[tickers_symbol+' 的權重'] = [w[tickers_counter] for w in tickers_p_weights]
 
-        rf = 0.015 # 假設無風險報酬率為 0.015 這個數值可討論
+        rf = 0.0118 #無風險報酬率為台灣-10年期公債殖利率 1.18%
         tickers_portfolio = pd.DataFrame(tickers_data)
         tickers_portfolio['投資組合的夏普率Sharpe Ratio'] = (tickers_portfolio['投資組合報酬率']-rf) / tickers_portfolio['投資組合波動率']
         tickers_portfolio['投資組合的崔納指標'] = (tickers_portfolio['投資組合報酬率']-rf) / tickers_portfolio['投資組合bp']
