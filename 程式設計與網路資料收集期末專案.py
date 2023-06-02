@@ -133,6 +133,8 @@ with st.spinner('Wait for it...'):
         tickers_portfolio['投資組合的夏普率Sharpe Ratio'] = (tickers_portfolio['投資組合報酬率']-rf) / tickers_portfolio['投資組合波動率']
         tickers_portfolio['投資組合的崔納指標'] = (tickers_portfolio['投資組合報酬率']-rf) / tickers_portfolio['投資組合bp']
         tickers_portfolio['投資組合的詹森指標'] = ((tickers_portfolio['投資組合報酬率']-rf) - (TWII_Er - rf)) * tickers_portfolio['投資組合bp']
+        tickers_portfolio['市場標準差'] = TWII_std
+        tickers_portfolio['市場期望報酬'] = TWII_Er        
         tickers_portfolio.head()
 
         #達到預期報酬率水平的最低可能風險之投資組合
@@ -162,8 +164,13 @@ definition = st.sidebar.subheader("Jensen Index (詹森指標)")
 definition_treynor = st.sidebar.markdown("詹森指標是指投資組合的績效，是否優於相同風險水準下其他組合的績效。詹森指標可為正或負，正值愈大表示績效愈好。")
 definition = st.sidebar.subheader("Sharp Ratio (夏普比率)")
 definition_treynor = st.sidebar.markdown("夏普指標，是指承擔每一單位的總風險，可獲得多少單位的風險溢酬。")
+definition = st.sidebar.subheader("β值（Beta)")
+definition_treynor = st.sidebar.markdown("β值一般是被用來衡量一支股票的風險大小，如果β為1，則其波動性與市場一致。如果β小於1，則其波動性較廣泛市場小；如果大於1，則其波動性較廣泛市場大。")
+
+
 st.balloons()
 
+#最低風險
 subheader_text = []
 for i in range(len(ticker_crawler_list)):
     subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_min_var_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_min_var_port[i + 3])*float(total_value), '.2f')) + " 元)")
@@ -172,19 +179,20 @@ st.header('達到預期報酬的最低風險組合：')
 for text in subheader_text:
     st.subheader(text)
 
-# st.subheader('比例：')
-# for i in range(len(ticker_crawler_list)) :
-#     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_min_var_port[i + 3])*100, '.3f')) + "%" + "")
-    
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", format(tickers_min_var_port[0], '.3f'))
 col2.metric("投資組合波動率", format(tickers_min_var_port[1], '.3f'))
 col3.metric("投資組合BP", format(tickers_min_var_port[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[5], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_min_var_port[6], '.3f'))
+col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_min_var_port[4], '.3f'))
 col6.metric("投資組合詹森指標", format(tickers_min_var_port[7], '.3f'))
+
+col7, col8, col9 = st.columns(3)
+col7.metric("市場標準差", format(tickers_min_var_port[5], '.3f'))
+col8.metric("市場期望報酬", format(tickers_min_var_port[6], '.3f'))
+
 st.divider()
 
 #最大化夏普率之投資組合
@@ -198,17 +206,37 @@ st.header('最大化夏普率組合：')
 for text in subheader_text:
     st.subheader(text)
 
+# col1, col2, col3 = st.columns(3)
+# col1.metric("投資組合報酬率", format(tickers_max_sharpe_port[0], '.3f'))
+# col2.metric("投資組合波動率", format(tickers_max_sharpe_port[1], '.3f'))
+# col3.metric("投資組合BP", format(tickers_max_sharpe_port[2], '.3f'))
+
+# col4, col5, col6 = st.columns(3)
+# col4.metric("投資組合Sharpe Ratio", format(tickers_max_sharpe_port[3], '.3f'))
+# col5.metric("投資組合崔納指標", format(tickers_max_sharpe_port[4], '.3f'))
+# col6.metric("投資組合詹森指標", format(tickers_max_sharpe_port[5], '.3f'))
+
+# col7, col8, col9 = st.columns(3)
+# col8.metric("市場標準差", format(tickers_max_sharpe_port[8], '.3f'))
+# col9.metric("市場期望報酬", format(tickers_max_sharpe_port[9], '.3f'))
+
 col1, col2, col3 = st.columns(3)
-col1.metric("投資組合報酬率", format(tickers_max_sharpe_port [0], '.3f'))
-col2.metric("投資組合波動率", format(tickers_max_sharpe_port [1], '.3f'))
-col3.metric("投資組合BP", format(tickers_max_sharpe_port [2], '.3f'))
+col1.metric("投資組合報酬率", format(tickers_max_sharpe_port[0], '.3f'))
+col2.metric("投資組合波動率", format(tickers_max_sharpe_port[1], '.3f'))
+col3.metric("投資組合BP", format(tickers_max_sharpe_port[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_max_sharpe_port [5], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_max_sharpe_port [6], '.3f'))
-col6.metric("投資組合詹森指標", format(tickers_max_sharpe_port [7], '.3f'))
-st.divider()
+col4.metric("投資組合Sharpe Ratio", format(tickers_max_sharpe_port[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_max_sharpe_port[4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_max_sharpe_port[5], '.3f'))
 
+col7, col8, col9 = st.columns(3)
+col7.metric("市場標準差", format(tickers_max_sharpe_port[6], '.3f'))
+col8.metric("市場期望報酬", format(tickers_max_sharpe_port[7], '.3f'))
+
+
+
+st.divider()
 #最大崔納指標組合
 # for i in range(len(ticker_crawler_list)) :
 #     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_treynor_ratio[i + 3])*100, '.3f')) + "%")
@@ -223,15 +251,22 @@ for text in subheader_text:
 
 
 col1, col2, col3 = st.columns(3)
-col1.metric("投資組合報酬率", format(tickers_max_treynor_ratio [0], '.3f'))
-col2.metric("投資組合波動率", format(tickers_max_treynor_ratio [1], '.3f'))
-col3.metric("投資組合BP", format(tickers_max_treynor_ratio [2], '.3f'))
+col1.metric("投資組合報酬率", format(tickers_max_treynor_ratio[0], '.3f'))
+col2.metric("投資組合波動率", format(tickers_max_treynor_ratio[1], '.3f'))
+col3.metric("投資組合BP", format(tickers_max_treynor_ratio[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_max_treynor_ratio [5], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_max_treynor_ratio [6], '.3f'))
-col6.metric("投資組合詹森指標", format(tickers_max_treynor_ratio [7], '.3f'))
+col4.metric("投資組合Sharpe Ratio", format(tickers_max_treynor_ratio[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_max_treynor_ratio[4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_max_treynor_ratio[5], '.3f'))
+
+col7, col8, col9 = st.columns(3)
+col7.metric("市場標準差", format(tickers_max_treynor_ratio[6], '.3f'))
+col8.metric("市場期望報酬", format(tickers_max_treynor_ratio[7], '.3f'))
+
 st.divider()
+
+
 
 #最大詹森
 # for i in range(len(ticker_crawler_list)) :
@@ -245,12 +280,17 @@ st.header('最大詹森指標組合：')
 for text in subheader_text:
     st.subheader(text)
 
+
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", format(tickers_max_jensen_ratio[0], '.3f'))
 col2.metric("投資組合波動率", format(tickers_max_jensen_ratio[1], '.3f'))
 col3.metric("投資組合BP", format(tickers_max_jensen_ratio[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_max_jensen_ratio[5], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_max_jensen_ratio[6], '.3f'))
-col6.metric("投資組合詹森指標", format(tickers_max_jensen_ratio[7], '.3f'))
+col4.metric("投資組合Sharpe Ratio", format(tickers_max_jensen_ratio[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_max_jensen_ratio[4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_max_jensen_ratio[5], '.3f'))
+
+col7, col8, col9 = st.columns(3)
+col7.metric("市場標準差", format(tickers_max_jensen_ratio[6], '.3f'))
+col8.metric("市場期望報酬", format(tickers_max_jensen_ratio[7], '.3f'))
