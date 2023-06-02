@@ -19,9 +19,16 @@ st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow
 
 # 輸入體量
 st.subheader('請輸入投資總額')
-total_value = st.text_input(' ', key = 1)
-if not total_value:
-    st.stop()
+k = 1
+while k < 3 :
+    try :
+        total_value = st.text_input(' ', key = 1)
+        k = int(total_value) + 5
+        if not total_value:
+            st.stop()
+    except :
+        st.info('請以羅馬數字格式輸入')
+        st.stop()
 
 #輸入標的
 ticker_crawler_list = [] # 紀錄用戶輸入的標的代碼，必須要跟yfinance同格式 xxxx.TW
