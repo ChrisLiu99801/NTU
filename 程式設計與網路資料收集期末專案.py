@@ -165,6 +165,8 @@ with st.spinner('Wait for it...'):
         st.exception(e)
         st.stop()
 
+         
+st.balloons()
 definition = st.sidebar.subheader("Treynor Ratio (崔納指標)")
 definition_treynor = st.sidebar.markdown("崔納指數是指，承擔每一單位的「系統風險」，可以獲得多少單位的風險溢酬。崔納指標愈大，表示該投資標的績效愈佳。")
 definition = st.sidebar.subheader("Jensen Index (詹森指標)")
@@ -174,8 +176,11 @@ definition_treynor = st.sidebar.markdown("夏普指標，是指承擔每一單�
 definition = st.sidebar.subheader("β值（Beta)")
 definition_treynor = st.sidebar.markdown("β值一般是被用來衡量一支股票的風險大小，如果β為1，則其波動性與市場一致。如果β小於1，則其波動性較廣泛市場小；如果大於1，則其波動性較廣泛市場大。")
 
-
-st.balloons()
+subheader_text = []
+st.header('投資組合的判斷基準_臺灣加權指數：')
+col1, col2, col3 = st.columns(3)
+col1.metric("市場波動率:", "{:.2%}".format(TWII_std))
+col2.metric("市場期望報酬:", "{:.2%}".format(TWII_Er))
 
 #最低風險
 subheader_text = []
@@ -195,11 +200,6 @@ col4, col5, col6 = st.columns(3)
 col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[3], '.3f'))
 col5.metric("投資組合崔納指標", format(tickers_min_var_port[4], '.3f'))
 col6.metric("投資組合詹森指標", format(tickers_min_var_port[7], '.3f'))
-
-col7, col8, col9 = st.columns(3)
-col7.metric("市場標準差", format(tickers_min_var_port[5], '.3f'))
-col8.metric("市場期望報酬", format(tickers_min_var_port[6], '.3f'))
-
 st.divider()
 
 #最大化夏普率之投資組合
@@ -237,12 +237,6 @@ col4.metric("投資組合Sharpe Ratio", format(tickers_max_sharpe_port[3], '.3f'
 col5.metric("投資組合崔納指標", format(tickers_max_sharpe_port[4], '.3f'))
 col6.metric("投資組合詹森指標", format(tickers_max_sharpe_port[5], '.3f'))
 
-col7, col8, col9 = st.columns(3)
-col7.metric("市場標準差", format(tickers_max_sharpe_port[6], '.3f'))
-col8.metric("市場期望報酬", format(tickers_max_sharpe_port[7], '.3f'))
-
-
-
 st.divider()
 #最大崔納指標組合
 # for i in range(len(ticker_crawler_list)) :
@@ -266,11 +260,6 @@ col4, col5, col6 = st.columns(3)
 col4.metric("投資組合Sharpe Ratio", format(tickers_max_treynor_ratio[3], '.3f'))
 col5.metric("投資組合崔納指標", format(tickers_max_treynor_ratio[4], '.3f'))
 col6.metric("投資組合詹森指標", format(tickers_max_treynor_ratio[5], '.3f'))
-
-col7, col8, col9 = st.columns(3)
-col7.metric("市場標準差", format(tickers_max_treynor_ratio[6], '.3f'))
-col8.metric("市場期望報酬", format(tickers_max_treynor_ratio[7], '.3f'))
-
 st.divider()
 
 
@@ -297,7 +286,3 @@ col4, col5, col6 = st.columns(3)
 col4.metric("投資組合Sharpe Ratio", format(tickers_max_jensen_ratio[3], '.3f'))
 col5.metric("投資組合崔納指標", format(tickers_max_jensen_ratio[4], '.3f'))
 col6.metric("投資組合詹森指標", format(tickers_max_jensen_ratio[5], '.3f'))
-
-col7, col8, col9 = st.columns(3)
-col7.metric("市場標準差", format(tickers_max_jensen_ratio[6], '.3f'))
-col8.metric("市場期望報酬", format(tickers_max_jensen_ratio[7], '.3f'))
