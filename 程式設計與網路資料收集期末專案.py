@@ -191,15 +191,6 @@ st.divider()
 
 #最低風險
 subheader_text = []
-st.header('投資組合的判斷基準_臺灣加權指數：')
-col1, col2, col3 = st.columns(3)
-col1.metric("市場波動率:", "{:.2%}".format(TWII_std))
-col2.metric("市場期望報酬:", "{:.2%}".format(TWII_Er))
-st.divider()
-
-
-#最低風險
-subheader_text = []
 for i in range(len(ticker_crawler_list)):
     subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + "{:,.3f}%".format(float(tickers_min_var_port[i + 3]) * 100) + " (" + "{:,.2f}".format(float(tickers_min_var_port[i + 3]) * float(total_value)) + " 元)")
 
