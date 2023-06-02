@@ -14,8 +14,8 @@ st.set_page_config(
     page_icon="random",
     layout="centered"
 )
-
-st.image(S__17105008.jpg, caption='Sunrise by the mountains')
+image = pd.read_csv("S__17105008.jpg")
+st.image(image, caption='Sunrise by the mountains')
 
 st.markdown("<h1 style='text-align: center; color: black;'>Analysmart 投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
