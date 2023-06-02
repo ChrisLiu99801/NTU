@@ -14,7 +14,7 @@ st.set_page_config(
     layout="centered"
 )
 
-st.markdown("<h1 style='text-align: center; color: black;'>投資組合分析</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: black;'>Analysmart 投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
 
 # 輸入體量
