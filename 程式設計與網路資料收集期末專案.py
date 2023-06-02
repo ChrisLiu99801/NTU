@@ -191,8 +191,18 @@ st.divider()
 
 #最低風險
 subheader_text = []
+st.header('投資組合的判斷基準_臺灣加權指數：')
+col1, col2, col3 = st.columns(3)
+col1.metric("市場波動率:", "{:.2%}".format(TWII_std))
+col2.metric("市場期望報酬:", "{:.2%}".format(TWII_Er))
+st.divider()
+
+
+#最低風險
+subheader_text = []
 for i in range(len(ticker_crawler_list)):
-    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_min_var_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_min_var_port[i + 3])*float(total_value), '.2f')) + " 元)")
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + "{:,.3f}%".format(float(tickers_min_var_port[i + 3]) * 100) + " (" + "{:,.2f}".format(float(tickers_min_var_port[i + 3]) * float(total_value)) + " 元)")
+
 
 st.header('達到預期報酬的最低風險組合：')
 for text in subheader_text:
@@ -211,11 +221,10 @@ st.divider()
 
 
 #最大化夏普率之投資組合
-# for i in range(len(ticker_crawler_list)) :
-#      st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%")
 subheader_text = []
 for i in range(len(ticker_crawler_list)):
-    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_sharpe_port[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_sharpe_port[i + 3])*float(total_value), '.2f')) + " 元)")
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + "{:,.3f}%".format(float(tickers_max_sharpe_port[i + 3]) * 100) + " (" + "{:,.2f}".format(float(tickers_max_sharpe_port[i + 3]) * float(total_value)) + " 元)")
+
 
 st.header('最大化夏普率組合：')
 for text in subheader_text:
@@ -231,21 +240,16 @@ col4.metric("投資組合Sharpe Ratio", "{:.2%}".format(tickers_max_sharpe_port[
 col5.metric("投資組合崔納指標", "{:.2%}".format(tickers_max_sharpe_port[4]))
 col6.metric("投資組合詹森指標", "{:.2%}".format(tickers_max_sharpe_port[5]))
 
-# col7, col8, col9 = st.columns(3)
-# col7.metric("市場標準差", format(tickers_max_sharpe_port[6], '.3f'))
-# col8.metric("市場期望報酬", format(tickers_max_sharpe_port[7], '.3f'))
 st.divider()
 
 
 
 
 #最大崔納指標組合
-# for i in range(len(ticker_crawler_list)) :
-#     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_treynor_ratio[i + 3])*100, '.3f')) + "%")
-
 subheader_text = []
 for i in range(len(ticker_crawler_list)):
-    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_treynor_ratio[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_treynor_ratio[i + 3])*float(total_value), '.2f')) + " 元)")
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + "{:,.3f}%".format(float(tickers_max_treynor_ratio[i + 3]) * 100) + " (" + "{:,.2f}".format(float(tickers_max_treynor_ratio[i + 3]) * float(total_value)) + " 元)")
+
 
 st.header('最大崔納指標組合：')
 for text in subheader_text:
@@ -266,17 +270,14 @@ st.divider()
 
 
 #最大詹森
-# for i in range(len(ticker_crawler_list)) :
-#     st.subheader(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_jensen_ratio[i + 3])*100, '.3f')) + "%")
-
 subheader_text = []
 for i in range(len(ticker_crawler_list)):
-    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + str(format(float(tickers_max_jensen_ratio[i + 3])*100, '.3f')) + "%" + " (" + str(format(float(tickers_max_jensen_ratio[i + 3])*float(total_value), '.2f')) + " 元)")
+    subheader_text.append(ticker_crawler_list[i] + ":arrow_right:" + "{:,.3f}%".format(float(tickers_max_jensen_ratio[i + 3]) * 100) + " (" + "{:,.2f}".format(float(tickers_max_jensen_ratio[i + 3]) * float(total_value)) + " 元)")
+
 
 st.header('最大詹森指標組合：')
 for text in subheader_text:
     st.subheader(text)
-
 
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", "{:.2%}".format(tickers_max_jensen_ratio[0]))
