@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import minimize, rosen, rosen_der
 from datetime import datetime
 import math
+from PIL import Image
 figsize = (14, 8) 
    
 st.set_page_config(
@@ -14,8 +15,11 @@ st.set_page_config(
     layout="centered"
 )
 
+st.image(S__17105008.jpg, caption='Sunrise by the mountains')
+
 st.markdown("<h1 style='text-align: center; color: black;'>Analysmart 投資組合分析</h1>", unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center; color: black;'> </h1>", unsafe_allow_html=True)
+
 
 # 輸入體量
 st.subheader('請輸入投資總額')
