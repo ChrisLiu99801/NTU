@@ -205,9 +205,9 @@ col2.metric("投資組合波動率", "{:.2%}".format(tickers_min_var_port[1]))
 col3.metric("投資組合BP", format(tickers_min_var_port[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[4], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_min_var_port[5], '.3f'))
-colˊ.metric("投資組合詹森指標", format(tickers_min_var_port[], '.3f'))
+col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_min_var_port[4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_min_var_port[5], '.3f'))
 st.divider()
 
 
@@ -254,9 +254,9 @@ col2.metric("投資組合波動率", "{:.2%}".format(tickers_max_treynor_ratio[1
 col3.metric("投資組合BP", format(tickers_max_sharpe_port [2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_max_treynor_ratio [4], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_max_treynor_ratio [5], '.3f'))
-col6.metric("投資組合詹森指標", format(tickers_max_treynor_ratio [6], '.3f'))
+col4.metric("投資組合Sharpe Ratio", format(tickers_max_treynor_ratio [3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_max_treynor_ratio [4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_max_treynor_ratio [5], '.3f'))
 st.divider()
 
 
@@ -277,6 +277,6 @@ col2.metric("投資組合波動率", "{:.2%}".format(tickers_max_jensen_ratio[1]
 col3.metric("投資組合BP", format(tickers_max_jensen_ratio[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", format(tickers_max_jensen_ratio[4], '.3f'))
-col5.metric("投資組合崔納指標", format(tickers_max_jensen_ratio[5], '.3f'))
-col6.metric("投資組合詹森指標", format(tickers_max_jensen_ratio[6], '.3f'))
+col4.metric("投資組合Sharpe Ratio", format(tickers_max_jensen_ratio[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_max_jensen_ratio[4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_max_jensen_ratio[5], '.3f'))
