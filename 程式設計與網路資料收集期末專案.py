@@ -202,11 +202,12 @@ for text in subheader_text:
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", "{:.2%}".format(tickers_min_var_port[0]))
 col2.metric("投資組合波動率", "{:.2%}".format(tickers_min_var_port[1]))
-col3.metric("投資組合BP", "{:.2%}".format(tickers_min_var_port[2]))
+col3.metric("投資組合BP", format(tickers_min_var_port[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
 col4.metric("投資組合Sharpe Ratio", format(tickers_min_var_port[4], '.3f'))
 col5.metric("投資組合崔納指標", format(tickers_min_var_port[5], '.3f'))
+colˊ.metric("投資組合詹森指標", format(tickers_min_var_port[], '.3f'))
 st.divider()
 
 
@@ -224,12 +225,12 @@ for text in subheader_text:
 col1, col2, col3 = st.columns(3)
 col1.metric("投資組合報酬率", "{:.2%}".format(tickers_max_sharpe_port[0]))
 col2.metric("投資組合波動率", "{:.2%}".format(tickers_max_sharpe_port[1]))
-col3.metric("投資組合BP", format(tickers_min_var_port[2], '.3f'))
+col3.metric("投資組合BP", format(tickers_max_sharpe_port[2], '.3f'))
 
 col4, col5, col6 = st.columns(3)
-col4.metric("投資組合Sharpe Ratio", "{:.2%}".format(tickers_max_sharpe_port[3]))
-col5.metric("投資組合崔納指標", "{:.2%}".format(tickers_max_sharpe_port[4]))
-col6.metric("投資組合詹森指標", "{:.2%}".format(tickers_max_sharpe_port[5]))
+col4.metric("投資組合Sharpe Ratio", format(tickers_max_sharpe_port[3], '.3f'))
+col5.metric("投資組合崔納指標", format(tickers_max_sharpe_port[4], '.3f'))
+col6.metric("投資組合詹森指標", format(tickers_max_sharpe_port[5], '.3f'))
 
 st.divider()
 
